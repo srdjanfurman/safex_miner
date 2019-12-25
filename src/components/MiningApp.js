@@ -2,12 +2,38 @@ import React from 'react';
 import packageJson from "../../package";
 
 const { shell } = window.require('electron')
-const xmrigCpu = window.require('node-xmrig-cpu');
+//const xmrigCpu = window.require('node-xmrig-cpu');
 const fileDownload = window.require('js-file-download');
-const safex = window.require('safex-nodejs-libwallet');
+//const safex = window.require('safex-nodejs-libwallet');
 const { dialog } = window.require('electron').remote;
 const path = window.require('path');
 const remote = window.require('electron').remote;
+
+// TODO
+const xmrigCpu = {
+    NodeXmrigCpu: () => {
+        return {
+            startMining: () => {},
+            stopMining: () => {},
+            reloadConfig: () => {},
+            getStatus: () => {
+                return 'a b';
+            }
+        };
+    }
+};
+
+const safex = {
+    openWallet: () => {
+        return Promise.resolve({
+            address: () => {},
+            secretSpendKey: () => {},
+            secretViewKey: () => {},
+        })
+    },
+    walletExists: () => true,
+    addressValid: () => true
+};
 
 import {
     verify_safex_address,
