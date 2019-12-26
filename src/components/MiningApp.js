@@ -6,7 +6,7 @@ const { shell } = window.require('electron')
 const fileDownload = window.require('js-file-download');
 //const safex = window.require('safex-nodejs-libwallet');
 const { dialog } = window.require('electron').remote;
-const path = window.require('path');
+//const path = window.require('path');
 const remote = window.require('electron').remote;
 
 // TODO
@@ -75,7 +75,7 @@ export default class MiningApp extends React.Component {
             address: '',
             pool_url: '',
             pools_list: [
-                'pool.safexnews.net:1111',
+                'pool.safexnews.net:3311',
                 'safex.cool-pool.net:3333',
                 'safex.cnpools.space:3333',
                 'safex.cnpools.space:1111',
