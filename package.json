@@ -42,8 +42,8 @@
 	},
 	"dependencies": {
 		"axios": "^0.16.2",
-		"chalk": "^3.0.0",
 		"electron-context-menu": "^0.9.1",
+		"fkill": "^6.2.0",
 		"js-file-download": "^0.4.4",
 		"jslint": "^0.12.1",
 		"node-xmrig-cpu": "git+https://github.com/xmrig/xmrig.git",
@@ -51,8 +51,7 @@
 		"react-copy-to-clipboard": "^5.0.1",
 		"react-dom": "^15.6.2",
 		"react-router": "^3.2.1",
-		"safex-addressjs": "git+https://github.com/safex/safex_addressjs.git",
-		"sleep": "^6.1.0"
+		"safex-addressjs": "git+https://github.com/safex/safex_addressjs.git"
 	},
 	"optionalDependencies": {
 		"typescript": "^3.4.5"
