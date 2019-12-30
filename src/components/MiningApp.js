@@ -3,7 +3,7 @@ import packageJson from "../../package";
 
 const { shell } = window.require('electron')
 const fileDownload = window.require('js-file-download');
-//const safex = window.require('safex-nodejs-libwallet');
+const safex = window.require('safex-nodejs-libwallet');
 const { dialog } = window.require('electron').remote;
 const path = window.require('path');
 const remote = window.require('electron').remote;
@@ -15,6 +15,9 @@ const axios = window.require('axios');
 const accessToken = 'ey...';
 const xmrigSummary = 'http://localhost:9999/1/summary'
 
+//process.env.ELECTRON_START_URL = `http://localhost:${port}`;
+
+/*
 // SAFEX wallet.
 const safex = {
 	openWallet: () => {
@@ -27,7 +30,7 @@ const safex = {
 	walletExists: () => true,
 	addressValid: () => true
 };
-
+*/
 import {
 	verify_safex_address,
 	openBalanceAlert,
@@ -865,13 +868,17 @@ export default class MiningApp extends React.Component {
 				starting: false
 			}));
 			this.openInfoPopup('Mining in progress');
-		}, 12000);
+		}, 2000);
 
-		var xmrigRelativePath = path.relative(process.cwd(), 'xmrig');
+		var appRoot = require('app-root-path');
+		console.log(appRoot.path); // .
 
-		const xmrigChild = spawn('/' + xmrigRelativePath + '/xmrig',
+		var xmrigFile = appRoot.resolve('/resources/extraResources/xmrig'); // spawn ./resources/extraResources/xmrig ENOENT
+		console.log(xmrigFile);
+
+		const xmrigChild = spawn(xmrigFile, // spawn /resources/extraResources/xmrig ENOENT
 			[
-				'--api-worker-id', "ONE CLICK MINER",
+				'--api-worker-id', 'ONE CLICK MINER',
 				'--donate-level', '1',
 				'--http-enabled',
 				'--http-host', '127.0.0.1',

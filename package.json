@@ -1,7 +1,7 @@
 {
 	"name": "Safex1ClickMiner",
 	"description": "Safex 1 Click Mining App Blockchain proof of work Safex Cash",
-	"version": "v0.0.3",
+	"version": "v0.0.4",
 	"homepage": ".",
 	"repository": {
 		"type": "git",
@@ -51,7 +51,8 @@
 		"react-copy-to-clipboard": "^5.0.1",
 		"react-dom": "^15.6.2",
 		"react-router": "^3.2.1",
-		"safex-addressjs": "git+https://github.com/safex/safex_addressjs.git"
+		"safex-addressjs": "git+https://github.com/safex/safex_addressjs.git",
+		"safex-nodejs-libwallet": "git+https://github.com/safex/safex-nodejs-libwallet.git"
 	},
 	"optionalDependencies": {
 		"typescript": "^3.4.5"
@@ -87,6 +88,9 @@
 			"!node_modules/safex-nodejs-libwallet/deps",
 			"!node_modules/safex-nodejs-libwallet/build"
 		],
+		"extraResources": [
+			"extraResources/**/*"
+		],
 		"mac": {
 			"category": "public.app-category.business",
 			"icon": "public/images/icons/icon2.icns",
@@ -101,8 +105,7 @@
 		},
 		"linux": {
 			"target": [
-				"deb",
-				"rpm"
+				"deb"
 			],
 			"category": "Utility",
 			"icon": "public/images/icons/icon2.png"
