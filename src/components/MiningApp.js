@@ -12,6 +12,7 @@ const { spawn } = window.require('child_process');
 
 const axios = window.require('axios');
 
+// Token valid until Monday, December 29, 2025 5:03:24 PM.
 const accessToken = 'ey...';
 const xmrigSummary = 'http://localhost:9999/1/summary'
 
@@ -869,14 +870,16 @@ export default class MiningApp extends React.Component {
 			}));
 			this.openInfoPopup('Mining in progress');
 		}, 2000);
+		/*
+				var appRoot = require('app-root-path');
+				console.log(appRoot.path); // .
+		
+				var xmrigFile = appRoot.resolve('/resources/extraResources/xmrig'); // spawn ./resources/extraResources/xmrig ENOENT
+				console.log(xmrigFile);
+		*/
+		const xmrigFile = path.resolve(window.process.resourcesPath, 'extraResources', 'xmrig');
 
-		var appRoot = require('app-root-path');
-		console.log(appRoot.path); // .
-
-		var xmrigFile = appRoot.resolve('/resources/extraResources/xmrig'); // spawn ./resources/extraResources/xmrig ENOENT
-		console.log(xmrigFile);
-
-		const xmrigChild = spawn(xmrigFile, // spawn /resources/extraResources/xmrig ENOENT
+		const xmrigChild = spawn(xmrigFile,
 			[
 				'--api-worker-id', 'ONE CLICK MINER',
 				'--donate-level', '1',
